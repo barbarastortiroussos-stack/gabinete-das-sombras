@@ -1,0 +1,36 @@
+:root{--noite:#0b0710;--ameixa:#1a1026;--roxo:#6b3a9c;--ouro:#c9a24b;--musgo:#6f8140;--marinho:#16254a;--texto:#e9e0ee;--suave:#a898b5;
+--titulo:"IM Fell English",Georgia,serif;--corpo:"Crimson Pro",Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:dark}
+body{background:var(--noite) radial-gradient(ellipse at 50% -10%,rgba(107,58,156,.35),transparent 60%) no-repeat;color:var(--texto);font-family:var(--corpo);font-size:1.15rem;line-height:1.65}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+header{border-bottom:1px solid rgba(201,162,75,.35)}
+header .wrap,footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 2rem;padding-top:1.1rem;padding-bottom:1.1rem}
+.marca{font-family:var(--titulo);font-size:1.6rem;color:var(--ouro)}
+ul{list-style:none}
+nav ul,footer ul{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem}
+nav a,footer a{color:var(--suave)}
+nav a:hover,footer a:hover{color:var(--ouro)}
+footer{margin-top:4rem;border-top:1px solid rgba(201,162,75,.2);color:var(--suave);font-size:1rem}
+main{padding-top:3rem}
+h1,h2,h3{font-family:var(--titulo);font-weight:400;line-height:1.15}
+h1{font-size:clamp(2.2rem,6vw,3.6rem);margin-bottom:1rem}
+h2{font-size:1.9rem;color:var(--ouro);margin-bottom:1.2rem}
+.intro{color:var(--suave);font-style:italic;max-width:36rem;margin-bottom:2.5rem}
+.gavetas{display:grid;gap:1rem}
+.gaveta a{display:grid;grid-template-columns:auto 1fr;gap:1.4rem;align-items:center;padding:1.3rem 1.5rem;background:linear-gradient(180deg,var(--ameixa),#120b1b);border:1px solid rgba(201,162,75,.28);border-left:4px solid var(--musgo);transition:border-color .2s,transform .2s}
+.gaveta:nth-child(3n+2) a{border-left-color:var(--marinho)}
+.gaveta:nth-child(3n) a{border-left-color:var(--roxo)}
+.gaveta a:hover{border-color:var(--ouro);transform:translateX(4px)}
+.puxador{width:2.6rem;height:.55rem;border-radius:.3rem;background:var(--ouro);box-shadow:0 0 12px rgba(201,162,75,.4)}
+.gaveta h3{font-size:1.45rem}
+.nota{color:var(--musgo);font-size:.98rem}
+.gaveta p{color:var(--suave);font-size:1.05rem}
+article{max-width:40rem;margin:0 auto}
+article .nota{margin-bottom:1.5rem}
+.prosa p{margin-bottom:1.3rem;line-height:1.8}
+.prosa em{color:#d9c8e8}
+@media(max-width:620px){.gaveta a{grid-template-columns:1fr}.puxador{width:2rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
