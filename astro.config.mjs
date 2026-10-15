@@ -1,3 +1,7 @@
 import { defineConfig } from 'astro/config';
-// Troque pelo seu domínio quando comprar
-export default defineConfig({ site: 'https://exemplo.com' });
+
+// https://astro.build/config
+export default defineConfig({
+  site: 'https://barbarastortiroussos-stack.github.io',
+  base: '/gabinete-de-sombras',
+});
