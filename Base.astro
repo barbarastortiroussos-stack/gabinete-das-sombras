@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+const { titulo, descricao = 'Contos sombrios, românticos e alternativos, no espírito dos antigos contos de fadas.' } = Astro.props;
+const full = titulo ? `${titulo} | Gabinete de Sombras` : 'Gabinete de Sombras - contos sombrios';
+---
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{full}</title>
+  <meta name="description" content={descricao} />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="marca" href="/">Gabinete de Sombras</a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/contos/">Contos</a></li>
+          <li><a href="/rpg/">RPG</a></li>
+          <li><a href="/sobre/">Sobre</a></li>
+          <li><a href="/contato/">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap"><slot /></main>
+  <footer>
+    <div class="wrap">
+      <span>&copy; {new Date().getFullYear()} Gabinete de Sombras</span>
+      <ul>
+        <li><a href="/privacidade/">Política de privacidade</a></li>
+        <li><a href="/termos/">Termos de uso</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

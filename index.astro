@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const contos = (await getCollection('contos', ({ data }) => !data.rascunho))
+  .sort((a, b) => b.data.data.valueOf() - a.data.data.valueOf());
+---
+<Base titulo="Contos">
+  <h1>Todos os contos</h1>
+  <ul class="gavetas">
+    {contos.map((c) => (
+      <li class="gaveta"><a href={`/contos/${c.id}/`}>
+        <span class="puxador" aria-hidden="true"></span>
+        <div><div class="nota">{c.data.categoria}</div><h3>{c.data.titulo}</h3><p>{c.data.resumo}</p></div>
+      </a></li>
+    ))}
+  </ul>
+</Base>

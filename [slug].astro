@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  const contos = await getCollection('contos', ({ data }) => !data.rascunho);
+  return contos.map((conto) => ({ params: { slug: conto.id }, props: { conto } }));
+}
+const { conto } = Astro.props;
+const { Content } = await render(conto);
+const minutos = Math.max(1, Math.round((conto.body ?? '').split(/\s+/).length / 200));
+---
+<Base titulo={conto.data.titulo} descricao={conto.data.resumo}>
+  <article>
+    <h1>{conto.data.titulo}</h1>
+    <div class="nota">{conto.data.categoria}, {minutos} min de leitura</div>
+    <div class="prosa"><Content /></div>
+  </article>
+</Base>
